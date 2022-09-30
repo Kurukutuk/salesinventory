@@ -1,2 +1,19 @@
 database : stocks
-table : 
+table : stocks
+	stock_id
+	name
+	type_id
+	qty
+	price
+	date_added
+
+table : products
+	product_id
+	name
+	qty
+	price
+
+table : sales
+	sales_id
+	product_id
+	date_sold

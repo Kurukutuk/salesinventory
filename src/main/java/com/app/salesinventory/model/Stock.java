@@ -27,14 +27,21 @@ public class Stock {
     )
     @Column(name = "stock_id", unique = true, nullable = false, updatable = false)
     private Long id;
+
     @Column(name = "stock_name", nullable = false)
-    private Long typeId;
+    private String name;
+
     @Column(name = "qty")
     private Integer quantity;
+
     @Column(name = "stock_price")
     private Double price;
-    @Column(name = "date_added")
+
+    @Basic(optional = false)
+    @Column(name = "date_added", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
     private Date dateAdded;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type_id", referencedColumnName = "type_id")
     private Type type;

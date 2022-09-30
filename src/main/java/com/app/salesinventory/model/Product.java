@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -34,5 +35,5 @@ public class Product {
     private Double price;
 
     @ManyToMany(mappedBy = "products")
-    private Set<Order> orders;
+    private List<Order> orders;
 }

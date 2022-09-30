@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -29,9 +30,9 @@ public class Order {
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
-            name = "Sales",
+            name = "sales",
             joinColumns = { @JoinColumn(name = "order_id") },
             inverseJoinColumns = { @JoinColumn(name = "product_id") }
     )
-    private Set<Product> products;
+    private List<Product> products;
 }
