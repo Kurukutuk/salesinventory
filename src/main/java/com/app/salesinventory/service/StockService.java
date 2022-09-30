@@ -1,35 +1,40 @@
 package com.app.salesinventory.service;
 
-import com.app.salesinventory.model.Product;
+import com.app.salesinventory.exception.StockNotFoundException;
 import com.app.salesinventory.model.Stock;
 import com.app.salesinventory.model.repository.StockRepository;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
+import java.util.*;
 
 @Service
 public class StockService {
     @Autowired
-    private StockRepository stockRepository;
+    private final StockRepository stockRepository;
+
+    public StockService(StockRepository stockRepository) {
+        this.stockRepository = stockRepository;
+    }
 
     public List<Stock> findAllStocks() {
         return stockRepository.findAll();
     }
-
-    public void addNewStock(Stock stock) {
+    public Stock addNewStock(Stock stock) {
         Optional<Stock> stockOptional = stockRepository.findStockById(stock.getId());
         if (stockOptional.isPresent()){
             throw new IllegalStateException("Stock already added before!");
         }
-        stockRepository.save(stock);
+        return stockRepository.save(stock);
+    }
+    public Stock updateStock(Stock stock){
+        return stockRepository.save(stock);
+    }
+    public Stock findStockById(Long id) {
+        return stockRepository.findStockById(id).orElseThrow(()-> new StockNotFoundException("Stock by id " + id + " was not found"));
+    }
+    public void deleteStock(Long id){
+        stockRepository.deleteStockById(id);
     }
 }

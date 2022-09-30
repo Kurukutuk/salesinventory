@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface TypeRepository extends JpaRepository<Type, Long> {
 
     Optional<Stock> findTypeById(Long id);
+
+    void deleteTypeById(Long id);
 }

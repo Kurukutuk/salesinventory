@@ -16,14 +16,8 @@ import java.util.Set;
 @Entity (name = "orders")
 public class Order {
     @Id
-    @SequenceGenerator(
-            name = "order_sequence",
-            sequenceName = "order_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "order_sequence"
+            strategy = GenerationType.AUTO
     )
     @Column(name = "order_id", nullable = false, unique = true)
     private Long id;

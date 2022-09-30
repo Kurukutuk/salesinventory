@@ -16,14 +16,8 @@ import java.util.List;
 @Entity (name = "stocks")
 public class Stock {
     @Id
-    @SequenceGenerator(
-            name = "stock_sequence",
-            sequenceName = "stock_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "stock_sequence"
+            strategy = GenerationType.AUTO
     )
     @Column(name = "stock_id", unique = true, nullable = false, updatable = false)
     private Long id;

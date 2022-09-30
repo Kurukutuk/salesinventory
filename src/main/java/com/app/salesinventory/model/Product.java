@@ -16,14 +16,8 @@ import java.util.Set;
 @Entity(name = "products")
 public class Product {
     @Id
-    @SequenceGenerator(
-            name = "product_sequence",
-            sequenceName = "product_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
+            strategy = GenerationType.AUTO
     )
     @Column(name = "product_id", unique = true, nullable = false, updatable = false)
     private Long id;
