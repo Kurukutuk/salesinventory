@@ -2,9 +2,8 @@ package com.app.salesinventory.service;
 
 import com.app.salesinventory.exception.StockNotFoundException;
 import com.app.salesinventory.model.Stock;
-import com.app.salesinventory.model.repository.StockRepository;
+import com.app.salesinventory.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

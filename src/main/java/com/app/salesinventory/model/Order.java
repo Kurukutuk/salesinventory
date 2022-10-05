@@ -22,6 +22,10 @@ public class Order {
     @Column(name = "order_id", nullable = false, unique = true)
     private Long id;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id")
+    private Status status;
+
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "sales",

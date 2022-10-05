@@ -1,4 +1,4 @@
-package com.app.salesinventory.model.repository;
+package com.app.salesinventory.repository;
 
 import com.app.salesinventory.model.Stock;
 import org.springframework.data.jpa.repository.JpaRepository;

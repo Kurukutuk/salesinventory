@@ -2,7 +2,7 @@ package com.app.salesinventory.service;
 
 import com.app.salesinventory.exception.TypeIdNotFoundException;
 import com.app.salesinventory.model.Type;
-import com.app.salesinventory.model.repository.TypeRepository;
+import com.app.salesinventory.repository.TypeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
